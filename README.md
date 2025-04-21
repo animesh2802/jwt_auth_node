@@ -30,73 +30,71 @@ A fast, modern, and minimal boilerplate for building web apps using **React**, *
 
 ## 📁 Project Structure
 
-vite-react-tailwind-pnpm-starter/ ├── public/ │ └── favicon.svg ├── src/ │ ├── App.jsx │ ├── main.jsx │ └── index.css # Tailwind directives ├── tailwind.config.js # Tailwind config ├── postcss.config.js # PostCSS plugins ├── package.json └── README.md
-
-yaml
-Copy
-Edit
+```bash
+vite-react-tailwind-pnpm-starter/
+├── public/
+│   └── favicon.svg
+├── src/
+│   ├── App.jsx
+│   ├── main.jsx
+│   └── index.css         # Tailwind directives
+├── tailwind.config.js    # Tailwind config
+├── postcss.config.js     # PostCSS plugins
+├── package.json
+└── README.md
+```
 
 ---
 
 ## 🛠️ Getting Started
 
-### 1. Clone the repo
+### 1. Clone the repository
 
 ```bash
 git clone https://github.com/animesh2802/vite-tailwind-starter.git
 cd vite-tailwind-starter
-2. Install dependencies
-bash
-Copy
-Edit
+```
+
+### 2. Install dependencies
+
+```bash
 pnpm install
-3. Start the development server
-bash
-Copy
-Edit
+```
+
+### 3. Start the development server
+
+```bash
 pnpm run dev
-Your app will be running at: http://localhost:5173
+```
 
-✨ Custom Tailwind Colors
-To use your own hex colors in Tailwind:
+Your application will be available at [http://localhost:5173](http://localhost:5173).
 
-html
-Copy
-Edit
-<div class="bg-[#1e293b] text-white p-4">
-  Custom Tailwind Color
-</div>
-Or extend the palette in tailwind.config.js:
+## 🎨 Customizing Tailwind CSS
 
-js
-Copy
-Edit
-theme: {
-  extend: {
-    colors: {
-      primary: '#1e293b',
-    }
-  }
-}
-💡 Recommended VS Code Extensions
-Tailwind CSS IntelliSense
+To add custom colors, modify the `tailwind.config.js` file:
 
-ES7+ React/Redux snippets
+```javascript
+// tailwind.config.js
+export default {
+  theme: {
+    extend: {
+      colors: {
+        primary: '#1e293b',
+      },
+    },
+  },
+  plugins: [],
+};
+```
+## 💡 Recommended VS Code Extensions
 
-Prettier
+- Tailwind CSS IntelliSense
+- ES7+ React/Redux snippets
+- Prettier
+- ESLint
 
-ESLint
+## 🌟 Support
 
-🧪 Useful Scripts
-
-Command	Description
-pnpm run dev	Start local dev server
-pnpm run build	Build production assets
-pnpm run preview	Preview production build
-📄 License
-MIT License © Your Name
-
-🌟 Support
 If you found this helpful, consider ⭐ starring the repo and sharing it!
 
 Happy hacking! 💻🔥
