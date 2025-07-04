@@ -1,100 +1,68 @@
-# ⚡ Vite + React + Tailwind CSS Starter Pack (PNPM)
+# 🛡️ Email OTP Auth API (Node.js + JWT)
 
-A fast, modern, and minimal boilerplate for building web apps using **React**, **Vite**, and **Tailwind CSS** — bundled with **pnpm** for fast and efficient package management.
-
-![Vite](https://img.shields.io/badge/Built%20With-Vite-646CFF?logo=vite&logoColor=white&style=for-the-badge)
-![React](https://img.shields.io/badge/React-20232A?logo=react&logoColor=61DAFB&style=for-the-badge)
-![TailwindCSS](https://img.shields.io/badge/TailwindCSS-38B2AC?logo=tailwind-css&logoColor=white&style=for-the-badge)
-![pnpm](https://img.shields.io/badge/Package%20Manager-pnpm-F69220?logo=pnpm&logoColor=white&style=for-the-badge)
+A reusable authentication module built with Node.js, Express, MongoDB, and JWT — using email-based OTP verification (no passwords).
 
 ---
 
-## 🚀 Features
+## 📦 Features
 
-- ⚛️ **React 18** with functional components and hooks  
-- ⚡ **Vite** for lightning-fast dev & build  
-- 🎨 **Tailwind CSS** configured and ready to use  
-- 💨 Just run and code — zero config hassle  
-- 🧩 Easily customizable and scalable  
-
----
-
-## 📦 Tech Stack
-
-- **React** — Component-based UI  
-- **Vite** — Lightning-fast frontend tooling  
-- **Tailwind CSS** — Utility-first CSS framework  
-- **pnpm** — Fast, efficient, and disk-friendly package manager  
+- Email-only login (no username/password)
+- One-Time Password (OTP) authentication
+- OTP expiry & hashing
+- JWT-based session tokens
+- Modular MVC architecture
+- Middleware to protect routes
+- Easily pluggable into any project
 
 ---
 
-## 📁 Project Structure
+## 🔧 Setup Instructions
+
+1. **Clone the repo**
 
 ```bash
-vite-react-tailwind-pnpm-starter/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── App.jsx
-│   ├── main.jsx
-│   └── index.css         # Tailwind directives
-├── tailwind.config.js    # Tailwind config
-├── postcss.config.js     # PostCSS plugins
-├── package.json
-└── README.md
-```
-
----
-
-## 🛠️ Getting Started
-
-### 1. Clone the repository
-
-```bash
-git clone https://github.com/animesh2802/vite-tailwind-starter.git
-cd vite-tailwind-starter
-```
-
-### 2. Install dependencies
-
-```bash
+git clone https://github.com/yourusername/email-otp-auth.git
+cd email-otp-auth
 pnpm install
 ```
-
-### 3. Start the development server
+2. **Create a .env file**
 
 ```bash
-pnpm run dev
+MONGO_URI=mongodb+srv://<your-mongo-connection>
+JWT_SECRET=your_jwt_secret_key
+JWT_EXPIRY=1d
+```
+3. **Run the server**
+```bash
+pnpm dev
+or
+node src/index.js
+```
+##
+
+## 🔐 API Endpoints
+
+**POST /auth/login**
+
+Send email to receive an OTP
+
+```bash
+{ "email": "test@example.com" }
 ```
 
-Your application will be available at [http://localhost:5173](http://localhost:5173).
+**POST /auth/verify**
 
-## 🎨 Customizing Tailwind CSS
+Verify OTP and receive JWT
 
-To add custom colors, modify the `tailwind.config.js` file:
+```bash
+{ "email": "test@example.com", "otp": "123456" }
 
-```javascript
-// tailwind.config.js
-export default {
-  theme: {
-    extend: {
-      colors: {
-        primary: '#1e293b',
-      },
-    },
-  },
-  plugins: [],
-};
 ```
-## 💡 Recommended VS Code Extensions
 
-- Tailwind CSS IntelliSense
-- ES7+ React/Redux snippets
-- Prettier
-- ESLint
+**🛡️ GET /protected (for testing)**
 
-## 🌟 Support
+Send JWT in header to access protected route
 
-If you found this helpful, consider ⭐ starring the repo and sharing it!
-
-Happy hacking! 💻🔥
+```bash
+Authorization: Bearer <token>
+```
